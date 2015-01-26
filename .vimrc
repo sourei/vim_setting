@@ -1,3 +1,10 @@
+set nocompatible	" vi互換にしない
+set tabstop=4		" 画面上でタブ文字が占める幅
+set shiftwidth=4	" 自動インデントでずれる幅
+set autoindent		" 改行時に前の行のインデントを継続する
+set smartindent		" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set hlsearch		" 検索結果のハイライトを有効にする
+
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
@@ -10,10 +17,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
  
-" 必要なプラグインを追加"
+" 今後このあたりに追加のプラグインをどんどん書いて行きます！！"
 NeoBundle 'Shougo/unite.vim'
-
-" NERDTreeを設定
 NeoBundle 'scrooloose/nerdtree'
 
 call neobundle#end()
@@ -28,3 +33,12 @@ NeoBundleCheck
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
+
+syntax on
+
+" バックスペースでなんでも（インデント、EOL、行頭）削除する
+set backspace=indent,eol,start
+colorscheme ron
+
+" NERDTreeをCtrl + e で表示 
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
